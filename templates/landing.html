@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+{% endblock %}
+
 {% block title %}Spendly — Track Every Rupee{% endblock %}
 
 {% block content %}
@@ -19,9 +23,11 @@
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="btn-primary">Start tracking free</a>
             <a href="{{ url_for('login') }}" class="btn-ghost">Sign in</a>
+            <button class="btn-how" id="open-modal">See how it works</button>
         </div>
     </div>
     <div class="hero-visual">
+        <div class="device-frame">
         <div class="mock-card">
             <div class="mock-card-header">
                 <span class="mock-label">March 2026</span>
@@ -58,8 +64,49 @@
                 </div>
             </div>
         </div>
+        </div>
     </div>
 </section>
+
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <h2 class="modal-title">How Spendly works</h2>
+        <div class="modal-steps">
+            <div class="modal-step">
+                <div class="modal-step-num">1</div>
+                <div>
+                    <h3>Create your account</h3>
+                    <p>Sign up in seconds — no credit card needed.</p>
+                </div>
+            </div>
+            <div class="modal-step">
+                <div class="modal-step-num">2</div>
+                <div>
+                    <h3>Log your expenses</h3>
+                    <p>Add any expense instantly with a category, amount, and date.</p>
+                </div>
+            </div>
+            <div class="modal-step">
+                <div class="modal-step-num">3</div>
+                <div>
+                    <h3>Understand your patterns</h3>
+                    <p>See breakdowns and monthly summaries to take control of your finances.</p>
+                </div>
+            </div>
+        </div>
+        <a href="{{ url_for('register') }}" class="btn-primary">Get started free</a>
+    </div>
+</div>
+
+{% block scripts %}
+<script>
+    const overlay = document.getElementById('modal-overlay');
+    document.getElementById('open-modal').addEventListener('click', () => overlay.classList.add('open'));
+    document.getElementById('modal-close').addEventListener('click', () => overlay.classList.remove('open'));
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+</script>
+{% endblock %}
 
 <section class="features">
     <div class="features-inner">

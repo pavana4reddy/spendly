@@ -1,0 +1,155 @@
+/* ------------------------------------------------------------------ */
+/* Hero — landing page overrides                                       */
+/* ------------------------------------------------------------------ */
+
+.hero {
+    background: linear-gradient(135deg, #fde8d8 0%, #f9c4cf 100%);
+    max-width: 100%;
+    padding: 5rem 3rem 4rem;
+}
+
+.hero-title {
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    line-height: 1.0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Device frame                                                        */
+/* ------------------------------------------------------------------ */
+
+.device-frame {
+    background: #f0ede6;
+    border-radius: 24px;
+    padding: 16px 16px 20px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.13), 0 0 0 1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 400px;
+}
+
+.device-frame::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: #d8d2c8;
+    border-radius: 2px;
+    margin: 0 auto 14px;
+}
+
+.device-frame .mock-card {
+    border-radius: 12px;
+    box-shadow: none;
+    max-width: 100%;
+}
+
+/* ------------------------------------------------------------------ */
+/* "See how it works" button                                           */
+/* ------------------------------------------------------------------ */
+
+.btn-how {
+    background: none;
+    border: none;
+    color: var(--ink-muted);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.65rem 0;
+    text-decoration: underline;
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+
+.btn-how:hover { color: var(--ink); }
+
+/* ------------------------------------------------------------------ */
+/* Modal                                                               */
+/* ------------------------------------------------------------------ */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 15, 15, 0.55);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+    background: var(--paper-card);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--ink-faint);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+    transition: color 0.2s;
+}
+
+.modal-close:hover { color: var(--ink); }
+
+.modal-title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--ink);
+    margin-bottom: 2rem;
+}
+
+.modal-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.modal-step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.modal-step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.modal-step h3 {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+}
+
+.modal-step p {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+}
